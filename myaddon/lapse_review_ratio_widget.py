@@ -12,9 +12,10 @@ def show_widget() -> None:
 class LapseReviewRatioWidget:
     def __init__(self):
         self.window = QWidget()
+        self.window.resize(320, 240)
         self.window.setWindowTitle("Lapse Review Ratio Tools")
-        layout = QVBoxLayout()
 
+        layout = QVBoxLayout()
         card_count = lapse_review_ratio_calculations.average_lapse_review_ratio(mw)
         card_count_text = f"There are {card_count} cards in your collection."
         card_count_text_widget = QLabel(card_count_text)
