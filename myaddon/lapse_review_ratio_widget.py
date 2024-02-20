@@ -1,7 +1,16 @@
 from aqt import mw
+from aqt.qt import *
 from aqt.utils import showInfo
 
 
 def show_widget() -> None:
-    card_count = mw.col.cardCount()
-    showInfo("Card count: %d (hello world)" % card_count)
+    mw.lapse_review_ratio_widget = widget = LapseReviewRatioWidget()
+    widget.show()
+
+
+class LapseReviewRatioWidget:
+    def __init__(self):
+        self.window = QWidget()
+
+    def show(self):
+        self.window.show()
