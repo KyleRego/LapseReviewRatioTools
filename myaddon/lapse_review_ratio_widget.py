@@ -16,10 +16,10 @@ class LapseReviewRatioWidget:
         self.window.setWindowTitle("Lapse Review Ratio Tools")
 
         layout = QVBoxLayout()
-        card_count = lapse_review_ratio_calculations.average_lapse_review_ratio(mw)
-        card_count_text = f"There are {card_count} cards in your collection."
-        card_count_text_widget = QLabel(card_count_text)
-        layout.addWidget(card_count_text_widget)
+        avg = lapse_review_ratio_calculations.average_lapse_review_ratio(mw)
+        avg_text = f"The average review lapse ratio (average of per card reviews/lapses) in your collection is {avg}."
+        avg_text_widget = QLabel(avg_text)
+        layout.addWidget(avg_text_widget)
 
         self.window.setLayout(layout)
 
