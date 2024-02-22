@@ -21,8 +21,6 @@ def on_browser_did_fetch_columns(columns):
         key="lapseReviewRatio",
         cards_mode_label="Lapse review ratio",
         notes_mode_label="Average card lapse review ratio",
-        sorting_cards=Columns.SORTING_DESCENDING,
-        sorting_notes=Columns.SORTING_DESCENDING,
         uses_cell_font=False,
         alignment=aqt.browser.Columns.ALIGNMENT_CENTER,
     )
