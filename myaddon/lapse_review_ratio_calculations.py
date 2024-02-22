@@ -21,7 +21,7 @@ def lr_ratio_for_card(mw: AnkiQt, card_id: int):
     card_lapse_count = card_data[1]
     review_count = mw.col.db.first("select count(*) from revlog where cid = ?", card_id)[0]
     if review_count == 0:
-        return "0 reviews"
+        return 0
     return card_lapse_count / review_count
 
 
