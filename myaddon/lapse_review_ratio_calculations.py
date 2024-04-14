@@ -25,6 +25,17 @@ def median_lapse_review_ratio(mw: AnkiQt) -> float:
         all_avgs.append(avg_for_card)
     return(statistics.median(all_avgs))
 
+
+def mode_lapse_review_ratio(mw: AnkiQt) -> float:
+    cards_data = mw.col.db.all("select id, lapses from cards;")
+    all_avgs = []
+    for card_data in cards_data:
+        card_id = card_data[0]
+        avg_for_card = lr_ratio_for_card(mw, card_id)
+        all_avgs.append(avg_for_card)
+    return(statistics.mode(all_avgs))
+
+
 def skewness(mw: AnkiQt) -> float:
     return 3 * (average_lapse_review_ratio(mw) - median_lapse_review_ratio(mw)) / standard_deviation_of_lapse_review_ratio(mw)
 

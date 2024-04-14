@@ -31,6 +31,11 @@ class LapseReviewRatioWidget:
         median_text_widget = QLabel(median_text)
         layout.addWidget(median_text_widget)
 
+        mode = lapse_review_ratio_calculations.mode_lapse_review_ratio(mw)
+        mode_text = f"The mode is {mode}"
+        mode_text_widget = QLabel(mode_text)
+        layout.addWidget(mode_text_widget)
+
         skewness = lapse_review_ratio_calculations.skewness(mw)
         skewness_text = f"The skewness is {skewness}"
         skewness_text_widget = QLabel(skewness_text)
