@@ -21,6 +21,11 @@ class LapseReviewRatioWidget:
         avg_text_widget = QLabel(avg_text)
         layout.addWidget(avg_text_widget)
 
+        standard_deviation = lapse_review_ratio_calculations.standard_deviation_of_lapse_review_ratio(mw)
+        standard_deviation_text = F"The standard deviation is {standard_deviation}."
+        standard_deviation_text_widget = QLabel(standard_deviation_text)
+        layout.addWidget(standard_deviation_text_widget)
+
         self.window.setLayout(layout)
 
     def show(self):

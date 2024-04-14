@@ -1,5 +1,18 @@
 from aqt import AnkiQt
 
+def standard_deviation_of_lapse_review_ratio(mw: AnkiQt) -> float
+    cards_data = mw.col.db.all("select id, lapses from cards;")
+    total_cards = mw.col.db.first("select count(*) from cards;")[0]
+    mean = average_lapse_review_ratio(mw: AnkiQt)
+    standard_deviation_result_sum = 0
+    for card_data in cards_data:
+        card_id = card_data[0]
+        avg_for_card = lr_ratio_for_card(mw, card_id)
+        difference = avg_for_card - mean
+        standard_deviation_result_sum += (difference ** 2)
+    squared_standard_deviation = standard_deviation_result_sum / total_cards
+    return sqrt(divided_it_by_total)
+
 
 def average_lapse_review_ratio(mw: AnkiQt) -> float:
     cards_data = mw.col.db.all("select id, lapses from cards;")
