@@ -26,6 +26,11 @@ class LapseReviewRatioWidget:
         standard_deviation_text_widget = QLabel(standard_deviation_text)
         layout.addWidget(standard_deviation_text_widget)
 
+        median = lapse_review_ratio_calculations.median_lapse_review_ratio(mw)
+        median_text = f"The median number of lapses / reviews for cards in your collection is {median}"
+        median_text_widget = QLabel(median_text)
+        layout.addWidget(median_text_widget)
+
         self.window.setLayout(layout)
 
     def show(self):

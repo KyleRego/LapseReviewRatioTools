@@ -1,4 +1,5 @@
 import math
+import statistics
 from aqt import AnkiQt
 
 def standard_deviation_of_lapse_review_ratio(mw: AnkiQt) -> float:
@@ -13,6 +14,16 @@ def standard_deviation_of_lapse_review_ratio(mw: AnkiQt) -> float:
         standard_deviation_result_sum += (difference ** 2)
     squared_standard_deviation = standard_deviation_result_sum / total_cards
     return math.sqrt(squared_standard_deviation)
+
+
+def median_lapse_review_ratio(mw: AnkiQt) -> float:
+    cards_data = mw.col.db.all("select id, lapses from cards;")
+    all_avgs = []
+    for card_data in cards_data:
+        card_id = card_data[0]
+        avg_for_card = lr_ratio_for_card(mw, card_id)
+        all_avgs.append(avg_for_card)
+    return(statistics.median(all_avgs))
 
 
 def average_lapse_review_ratio(mw: AnkiQt) -> float:
